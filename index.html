@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Digital Clock</title>
+</head>
+<body>
+	<div class="clock">
+		<span class="hour"></span>:
+		<span class="minute"></span>:
+		<span class="second"></span>
+	</div>
+
+	<style>
+		body {
+		    display: flex;
+		    align-items: center;
+		    justify-content: center;
+		    background-color: #b7657b;
+			height: 100vh;
+		}
+
+		.clock {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			font-size: 10rem;
+			border-radius: 10px;
+			color: #fff;
+		}
+
+		/* Mobile breakpoint */
+		@media (max-width: 47.94em){
+			.clock {
+				font-size: 5rem;
+			}
+		}
+	</style>
+	<script>
+		const hour = document.querySelector(".hour");
+		const minute = document.querySelector(".minute");
+		const second = document.querySelector(".second");
+
+		function setTime() {
+			const now = new Date();
+			let hourCount = now.getHours();
+			let minuteCount = now.getMinutes();
+			let secondCount = now.getSeconds();
+
+			second.innerHTML = secondCount.toString().padStart(2, "0");
+			minute.innerHTML = minuteCount.toString().padStart(2, "0");
+			hour.innerHTML = hourCount.toString().padStart(2, "0");
+		}
+
+		setInterval(setTime, 1000);
+
+	</script>
+</body>
+</html>
