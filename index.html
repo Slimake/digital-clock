@@ -6,18 +6,14 @@
 	<title>Digital Clock</title>
 </head>
 <body>
-	<div class="clock">
-		<span class="hour"></span>:
-		<span class="minute"></span>:
-		<span class="second"></span>
-	</div>
+	<div class="clock"></div>
 
 	<style>
 		body {
 		    display: flex;
 		    align-items: center;
 		    justify-content: center;
-		    background-color: #b7657b;
+		    background-color: #290149;
 			height: 97.5vh;
 		}
 
@@ -38,19 +34,17 @@
 		}
 	</style>
 	<script>
-		const hour = document.querySelector(".hour");
-		const minute = document.querySelector(".minute");
-		const second = document.querySelector(".second");
+		const clock = document.querySelector(".clock");
 
 		function setTime() {
 			const now = new Date();
 			let hourCount = now.getHours();
 			let minuteCount = now.getMinutes();
 			let secondCount = now.getSeconds();
-
-			second.innerHTML = secondCount.toString().padStart(2, "0");
-			minute.innerHTML = minuteCount.toString().padStart(2, "0");
-			hour.innerHTML = hourCount.toString().padStart(2, "0");
+			let time = hourCount.toString().padStart(2, "0")
+			+ ":" + minuteCount.toString().padStart(2, "0")
+			+ ":" + secondCount.toString().padStart(2, "0");
+			clock.textContent = time;
 		}
 
 		setInterval(setTime, 1000);
