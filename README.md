@@ -1,4 +1,4 @@
-# digital-clock
+# Digital Clock
 
 <!-- TABLE OF CONTENTS -->
 <details open="open">
